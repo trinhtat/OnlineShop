@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ShopOnline.Models.TypeProduct>
+
+@{
+    ViewBag.Title = "Loại sản phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Loại sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create")|
+    @Html.ActionLink("Tìm kiếm", "Search")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Tên loại sản phẩm
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeProductName)
+            </td>
+            <td>
+                <img src=@item.ImageURL style="max-width:100px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.TypeProductID }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.TypeProductID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.TypeProductID }) |
+            </td>
+        </tr>
+    }
+
+</table>

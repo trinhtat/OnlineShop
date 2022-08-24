@@ -1,0 +1,24 @@
+﻿@model ShopOnline.Models.News
+@{
+    ViewBag.Title = "Chi Tiết Tin Tức";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<hr />
+
+
+<div class="body-content">
+    <div>
+        <p>Trang chủ > @Html.ActionLink("Tin tức", "Index", "WebTintuc")</p>
+    </div>
+    <div style="text-align:center">
+        <h2 style="text-align:center">@Model.Title</h2>
+        <img src='@Model.ImageURL' />
+    </div>
+    <div>
+        <p>@Model.Detail</p>
+    </div>
+</div>
+
+

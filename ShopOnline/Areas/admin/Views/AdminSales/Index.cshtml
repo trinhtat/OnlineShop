@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ShopOnline.Models.Sale>
+
+@{
+    ViewBag.Title = "Khuyễn mãi";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Khuyễn mãi</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Phần Trăm
+        </th>
+        <th>
+            Ngày bắt đầu
+        </th>
+        <th>
+            Ngày kết thúc
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th>Xử lý</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount) %
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.SaleID }) |
+            @Html.ActionLink("Chi iết", "Details", new { id=item.SaleID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.SaleID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,185 @@
+﻿@model ShopOnline.Models.SanPham
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="container-fluid layer1">
+    <div class="container">
+        <div class="row layer11">
+
+            <div class="col col-md-1 col-2">
+
+            </div>
+
+            <div class="col col-md-5 col-10">
+                <img src='@Model.hinhanh' alt="">
+            </div>
+            <div class="col col-md-4 col-12">
+                <h1>@Model.tensanpham</h1>
+                <h2>Giá gốc: <del>@Model.dongia đ</del></h2>
+                <h3>
+                    Giá khuyến mãi:
+                    @{ var giagiam = Model.dongia * Model.khuyenmai / 100;}
+                    @giagiam đ
+                </h3>
+                <p>Số lượng: @Model.soluong</p>
+                <div class="button-mua">
+                    <div class="btn btn-primary btnwhite">
+                        @Html.ActionLink("Mua Hàng", "ThemSanPham", "WebGioHang", new { id = Model.masanpham }, null)
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-md-2 col-12 leftmain">
+                <div class="row row1">
+                    <p class="title">Sẽ có ngay tại nhà</p>
+                    <p class="content">Nhận hàng sau 7 ngày</p>
+                </div>
+                <div class="row row1">
+
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <p class="title">giao hàng miễn phí</p>
+                        <p class="content">Đơn hàng trên 300k</p>
+                    </div>
+
+
+                </div>
+                <hr class="hrngan">
+                <div class="row row1">
+
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <p class="title">Đổi trả miễn phí</p>
+                        <p class="content">đổi trả miễn phí trong 30 ngày</p>
+                    </div>
+                </div>
+                <hr class="hrngan">
+                <div class="row row1">
+
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <p class="title">Thanh toán </p>
+                        <p class="content">Thanh toán khi nhận hàng</p>
+                    </div>
+                </div>
+                <hr class="hrngan">
+                <div class="row row1">
+
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <p class="title">Hỗ trợ online</p>
+                        <p class="content">0973599721</p>
+                    </div>
+                </div>
+                <hr class="hrngan">
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mota">
+    <div class="container mota1">
+        <div class="row topmota">
+            @foreach (var it in Model.dshinhanh)
+            {
+                <div class="col col-md-3 col-12">
+                    <img src='@it.ImageURL' alt='@it.ImageName' width="100%">
+                </div>
+            }
+
+        </div>
+        <hr />
+        <div class="row chitet1">
+            <h3>Chi tiết sản phẩm</h3>
+            @foreach (var it1 in Model.Detailss)
+            {
+                <p>@it1</p>
+            }
+        </div>
+        <hr />
+        <div class="row mota1">
+            <h3>Mô tả sản phẩm</h3>
+            <p>@Model.mota</p>
+        </div>
+        <hr />
+        <div class="row mota1 w-100">
+            <h3>Đánh giá của bạn</h3>
+            @using (Html.BeginForm("ThemDanhGia", "WebChiTietSP", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <input type="text" class="form-control w-100" placeholder="Đánh giá sản phẩm" name="textdanhgia">
+                <button type="submit" class="btn-primary" name="masanpham" value='@Model.masanpham'>Đánh Giá</button>
+            }
+        </div>
+        <div class="row mota1">
+            <h3>Các đánh giá</h3>
+            <table class="w-100">
+                @foreach (var it2 in Model.danhgia)
+                {
+                    <tr class="w-100">
+                        <td class="w-30"><b>@it2.Account.AccountName</b></td>
+                        
+                        <td class="w-70">
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            @it2.Comment
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid splienquan">
+    <div class="container">
+        <hr>
+        <div class="row tsp">
+            <h1>Sản phẩm liên quan</h1>
+        </div>
+        <div class="row sanphamtt">
+            @foreach (var item in Model.splienquan)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="thumbnail" id="anhsp">
+                        <img src='@item.ImageURL' alt='@item.ProductName'>
+                        <div class="caption">
+                            <h4>@item.ProductName</h4>
+                            <span class="price">
+                                <span class="sale-price">
+                                    @{ var giagiam1 = @item.UnitPrice * @item.Sale.Discount / 100;}
+                                    @giagiam1 đ
+                                </span>
+                                <span class="regular-price">
+                                    @item.UnitPrice đ
+                                </span>
+                            </span>
+                            <p class="ctsp1">
+                                <div class="btn btn-primary btnwhite">
+                                    @Html.ActionLink("Chi Tiết", "ChiTietsp", "WebChiTietSp", new { id = item.ProductID }, null)
+                                </div>
+                                <div class="btn btn-primary btnwhite">
+                                    @Html.ActionLink("Mua Hàng", "ThemSanPham", "WebGioHang", new { id = item.ProductID }, null)
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

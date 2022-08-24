@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ShopOnline.Models.Product>
+@{
+    ViewBag.Title = "Danh mục sản phẩm";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid sanpham">
+    <div class="container sanpham1">
+        <div class="row tensp">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <hr class="hrtensp">
+                <hr class="hrtensp">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <h2>@Model.FirstOrDefault().TypeProduct.TypeProductName</h2>
+                <h4>sản phẩm luôn được cập nhật thường xuyên</h4>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <hr class="hrtensp">
+                <hr class="hrtensp">
+            </div>
+        </div>
+
+        <div class="row sanphamtt">
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                    <div class="thumbnail" id="anhsp">
+                        <img src='@item.ImageURL' alt='@item.ProductName'>
+                        <div class="caption">
+                            <h4>@item.ProductName</h4>
+                            <span class="price">
+                                <span class="sale-price">
+                                    @{ var giagiamo = @item.UnitPrice * @item.Sale.Discount / 100;}
+                                    @giagiamo đ
+                                </span>
+                                <span class="regular-price">
+                                    @item.UnitPrice đ
+                                </span>
+                            </span>
+                            <p>
+                                <div class="btn btn-primary btnwhite">
+                                    @Html.ActionLink("Chi Tiết", "ChiTietsp", "WebChiTietSp", new { id = item.ProductID }, null)
+                                </div>
+                                <div class="btn btn-primary btnwhite">
+                                    @Html.ActionLink("Mua Hàng", "ThemSanPham", "WebGioHang", new { id = item.ProductID }, null)
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+

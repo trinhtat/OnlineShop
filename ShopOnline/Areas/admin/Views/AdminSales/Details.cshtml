@@ -1,0 +1,50 @@
+﻿@model ShopOnline.Models.Sale
+
+@{
+    ViewBag.Title = "Khuyễn mãi";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Khuyễn mãi</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Phần trăm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discount) %
+        </dd>
+
+        <dt>
+            Ngày bắt đầu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateStart)
+        </dd>
+
+        <dt>
+            Ngày kết thúc
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEnd)
+        </dd>
+
+        <dt>
+            Ghi chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.SaleID }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

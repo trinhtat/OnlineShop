@@ -1,0 +1,50 @@
+﻿@model ShopOnline.Models.ImageNew
+
+@{
+    ViewBag.Title = "Hình ảnh tin tức";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Hình ảnh tin tức</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageName)
+        </dd>
+
+        <dt>
+            URL ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+
+        <dt>
+            Ghi chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            Tin tức
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.News.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ImageID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

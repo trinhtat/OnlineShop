@@ -1,0 +1,88 @@
+﻿@model ShopOnline.Models.GioHang
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid layer1">
+    <div class="container">
+        <div class="row rowtitle" style="text-align:center">
+            <h1>Giỏ hàng</h1>
+        </div>
+        <div class="row cart">
+
+            <div class="page-cart">
+                <div class="container">
+                    <div class="list-cart">
+                        <div class="title item-cart">
+                            <div class="name">
+                                <p>Tên sản phẩm</p>
+                            </div>
+                            <div class="price">
+                                <p>Giá</p>
+                            </div>
+                            <div class="h-number">
+                                <p>Số lượng</p>
+                            </div>
+                            <div class="delete">
+                                <p></p>
+                            </div>
+                        </div>
+                        @{ decimal giamgia;}
+                        @if (Model.dssanpham != null)
+                        {
+                            foreach (var item in Model.dssanpham)
+                            {
+                                <div class="item-cart" id="item-cart-75,73">
+                                    <div class="name">
+                                        <a href=""><img src='@item.hinhanh' alt="Tên sp "></a>
+                                        <div class="infor">
+
+                                            <p class="sku" style="font-size: 12px;color: #b20000;">@item.tensanpham</p>
+
+                                        </div>
+                                    </div>
+                                    <div class="price">
+                                        <h3><span class="payment-item">@item.dongia.ToString("0,000,000")</span> <sup>đ</sup></h3>
+                                        <input type="hidden" value="931500">
+                                        @{giamgia = item.dongia * item.khuyenmai / 100; }
+                                        <b>@giamgia.ToString("0,000,000")</b>
+                                        <span class="label">@item.khuyenmai</span>
+                                    </div>
+                                    @using (Html.BeginForm("SetSoLuong", "WebGioHang", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="add-quantity">
+                                            <input id="quantity" min="1" name="quantity" type="text" value='@item.soluong'>
+                                            <button type="submit" name="productid" value='@item.masanpham'><span class="glyphicon glyphicon-refresh"></span></button>
+                                        </div>
+                                        <a href='@Url.Action("XoaSanPham",new { id=item.masanpham})' class="js-remove-item" data-product="163" data-variant="75,73">✖</a>
+                                    }
+                                </div>
+                            }
+                        }
+
+
+                    </div>
+
+                    <div class="content-cart">
+                        <!-- <h3>Giỏ hàng của tôi</h3> -->
+                        <div class="infor-order">
+                            <h3>Thông tin đơn hàng</h3>
+                            <div class="infor">
+                                <p>Tổng Tiền</p>
+                                <p><span id="total_money_1">@Model.TongTien</span> <sup>đ</sup></p>
+                            </div>
+                            <div class="infor total">
+                                <p>Thanh Toán</p>
+                                <p><span id="total_money_2">@Model.ThanhToan</span> <sup>đ</sup></p>
+                            </div>
+                            <a href='@Url.Action("DatHang")'>Tiến hành đặt hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

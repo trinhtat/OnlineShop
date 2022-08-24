@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ShopOnline.Models.ImageProduct>
+
+@{
+    ViewBag.Title = "Hình ảnh sản phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Hình ảnh sản phẩm</h2>
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(modelItem => item.Product.ProductName)
+    break;
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên ảnh
+        </th>
+        <th>
+            URL ảnh
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th>
+            Sản phẩm
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageName)
+            </td>
+            <td>
+                <img src='..\@item.ImageURL' style="max-width:100px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ImageID }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ImageID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ImageID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Qauy lại", "Index","AdminProducts")
+</div>

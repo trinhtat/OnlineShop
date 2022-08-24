@@ -1,0 +1,68 @@
+﻿@model IEnumerable<ShopOnline.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Chi tiết đơn hàng</h2>
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(modelItem => item.Order.OrderID)
+    break;
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            Mã đơn hàng
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Khuyễn mãi
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Sale.Discount) %
+            </td>
+            <td>
+                @item.Product.UnitPrice.ToString("0,000,000") VND
+            </td>
+            <td>
+                @{ var tien = item.Product.UnitPrice * item.Product.Sale.Discount * item.Quantity / 100;}
+                @tien.ToString("0,000,000") VND
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Quay lại", "Index", "AdminOrders")
+</div>

@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <h2 class="text-center">Đăng ký</h2>
+        <hr />
+        @using (Html.BeginForm("Register", "WebRegister", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table class="w-100">
+                <tfoot>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="submit" class="btn-primary mid2 mid1 border">Đăng ký</button>
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td class="w-25">
+                            <b class="mid2">Tên tài khoản: </b>
+                        </td>
+                        <td class="w-25">
+                            <input type="text" class="form-input" name="accountname" placeholder="" />
+                            <p class="text-danger">@ViewBag.thongbaoaccount</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">
+                            <b class="mid2">Mật khẩu: </b>
+                        </td>
+                        <td class="w-25">
+                            <input type="text" class="form-input" name="password" placeholder="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25">
+                            <b class="mid2">Tên Khách hàng: </b>
+                        </td>
+                        <td class="w-25">
+                            <input type="text" class="form-input" name="customername" placeholder="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25"><b class="mid2">Ngày sinh: </b></td>
+                        <td class="w-75">
+                            <input type="date" class="form-input" name="birthday" placeholder="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25"><b class="mid2">Giới tính: </b></td>
+                        <td class="w-75">
+                            <select id="gender" name="gender">
+                                <option value="nam">Nam</option>
+                                <option value="nu">Nữ</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25"><b class="mid2">Địa chỉ: </b></td>
+                        <td class="w-75">
+                            <input type="text" class="form-input" name="address" placeholder="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25"><b class="mid2">Email: </b></td>
+                        <td class="w-75">
+                            <input type="email" class="form-input" name="email" placeholder="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25"><b class="mid2">Số điện thoại: </b></td>
+                        <td class="w-75">
+                            <input type="text" class="form-input" name="phonenumber" placeholder="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="w-25"><b class="mid2">Ghi chú: </b></td>
+                        <td class="w-75">
+                            <input type="text" class="form-input" name="ghichu" placeholder="" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+        <hr />
+        <div>
+            <p class="text-center">Bạn đã có tài khoản @Html.ActionLink("Đăng Nhập", "Index", "WebLogin")</p>
+        </div>
+    </div>
+</div>
+

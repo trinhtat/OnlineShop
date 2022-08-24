@@ -1,0 +1,125 @@
+﻿@model ShopOnline.Models.Order
+
+@{
+    ViewBag.Title = "In hóa đơn";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">In hóa đơn</h2>
+
+<hr />
+
+<h3 class="text-center">HÓA ĐƠN BÁN HÀNG</h3>
+
+<div>
+    <p>Don vi bán hàng: Cua hàng TTPHONE</p>
+    <p>
+        Website: TTPHONE.com.vn"
+    </p>
+    <p>
+        Email: TTPHONE@gmail.com.vn
+    </p>
+    <p>
+        SDT: 0987654321
+    </p>
+</div>
+
+<div>
+    <p>
+        Họ tên khách hàng: @Model.Account.Customers.FirstOrDefault().CustomerName
+    </p>
+    <p>
+        Địa chỉ: @Model.Account.Customers.FirstOrDefault().Address
+    </p>
+    <p>
+        Email: @Model.Account.Customers.FirstOrDefault().Email
+    </p>
+    <p>
+        SDT: @Model.Account.Customers.FirstOrDefault().PhoneNumber
+    </p>
+    <p>
+        Ngày đặt: @Model.DateOrder
+    </p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Khuyễn mãi
+        </th>
+        <th>
+            Tổng tiền
+        </th>
+        <th>
+            Thành Tiền
+        </th>
+    </tr>
+    @{ var index = 1;}
+    @foreach (var item in Model.OrderDetails)
+    {
+        <tr>
+            <td>
+                @index
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Sale.Discount) %
+            </td>
+            <td>
+                @{ var tong = item.Product.UnitPrice * item.Product.Sale.Discount;}
+                @tong.ToString("0,000,000") VND
+            </td>
+            <td>
+                @{ var tien = item.Product.UnitPrice * item.Product.Sale.Discount * item.Quantity / 100;}
+                @tien.ToString("0,000,000") VND
+            </td>
+        </tr>
+    }
+    <tr>
+        <td colspan="7" align="right">
+            <del><b>Tổng tiền: @Model.OrderDetails.Sum(od => od.Product.UnitPrice * od.Quantity) VND</b></del>
+            <br />
+            <b>thanh Toán: @Model.OrderDetails.Sum(od => od.Product.UnitPrice * od.Quantity * od.Product.Sale.Discount / 100) VND</b>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" align="center">
+            <b>Người mua hàng</b>
+            <p>
+                (Ký, ghi rõ họ tên)
+            </p>
+        </td>
+        <td></td>
+        <td colspan="3" align="center">
+            <b>Người bán hàng</b>
+            <p>
+                (Ký, ghi rõ họ tên)
+            </p>
+        </td>
+    </tr>
+</table>
+
+<div>
+    @Html.ActionLink("In hóa đơn", "PrintOrderPDFDone", "AdminOrders", new { id = Model.OrderID }, null)|
+    @Html.ActionLink("Quay lại", "Index", "AdminOrders")
+</div>

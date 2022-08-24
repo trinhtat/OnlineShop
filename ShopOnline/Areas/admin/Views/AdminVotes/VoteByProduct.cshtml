@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ShopOnline.Models.Vote>
+
+@{
+    ViewBag.Title = "Đánh giá sản phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Đánh giá sản phẩm</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Tên tài khoản
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Đánh giá
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+        </tr>
+    }
+
+</table>

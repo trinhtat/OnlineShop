@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ShopOnline.Models.ImageNew>
+
+@{
+    ViewBag.Title = "Hình ảnh tin tức";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hình ảnh tin tức</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.News.ImageURL)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.News.ImageURL)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ImageID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ImageID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ImageID })
+            </td>
+        </tr>
+    }
+
+</table>

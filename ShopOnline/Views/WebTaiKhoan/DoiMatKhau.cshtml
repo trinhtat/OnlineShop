@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Cập nhật mật khẩu";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 w-25" style="padding:0;">
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật thông tin khách hàng", "CapNhatThongTinKhachHang")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật mật khẩu", "DoiMatKhau")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Quản lý đơn hàng", "QuanLyDonHang")</p>
+                </div>
+            </div>
+            <div class="col-md-9 w-75" style="padding:0;">
+                <div class="border">
+                    <h2 class="mid2">Cập nhật mật khẩu</h2>
+                </div>
+                
+                <div class="border">
+                    @using (Html.BeginForm("DoiMK", "WebTaiKhoan", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <table class="w-100">
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <div>
+                                            <p class="text-center text-danger">@ViewBag.thongbaopass</p>
+                                        </div>
+                                        <button type="submit" class="btn-primary mid2 mid1 border">Cập nhật</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td class="w-25">
+                                        <b class="mid2">Mật khẩu cũ: </b>
+                                    </td>
+                                    <td class="w-75">
+                                        <input type="text" class="form-input" name="matkhaucu" placeholder="" required />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25">
+                                        <b class="mid2">Mật khẩu mới: </b>
+                                    </td>
+                                    <td class="w-25">
+                                        <input type="text" class="form-input" name="matkhaumoi" placeholder="" required />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Xác nhận: </b></td>
+                                    <td class="w-75">
+                                        <input type="text" class="form-input" name="xacnhan" placeholder="" required />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

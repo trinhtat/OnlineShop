@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ShopOnline.Models.News>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<hr />
+<div class="container-fluid tintuc">
+    <div class="container tintuc1">
+        
+        <h1 style="text-align:center">Tin Tức</h1>
+
+        @foreach (var item in Model)
+        {
+            <div class="row news">
+                <div class="col col-md-3 col-12">
+                    <a href=@Url.Action("ChiTiettt",new { id=item.NewID})> <img src='@item.ImageURL' alt="" style="width:100%"></a>
+                </div>
+                <div class="col col-md-9 col-12">
+                    <a href=@Url.Action("ChiTiettt",new { id=item.NewID})><p class="title">@item.Title</p></a>
+                    <p>@item.Detail</p>
+                    <a href=@Url.Action("ChiTiettt",new { id=item.NewID}) class="btn btn-dark">Chi tiết</a>
+                </div>
+            </div>
+            <hr class="ngan">
+        }
+    </div>
+
+    @using (Html.BeginForm("GotoPage", "WebTintuc", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <input type="text" name="page" placeholder="page" />
+            <button type="submit">Go</button>
+            @ViewBag.page
+        </div>
+    }
+</div>
+

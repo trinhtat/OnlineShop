@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF150EDC-7213-4C34-BA29-7014FD6F6440}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopOnline</RootNamespace>
+    <AssemblyName>ShopOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44305</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminAccountsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminLoginController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminCustomersController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminImageNewsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminImageProductsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminNewsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminOrderDetailsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminOrdersController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminProductsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminSalesController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminTypeProductsController.cs" />
+    <Compile Include="Areas\admin\Controllers\AdminVotesController.cs" />
+    <Compile Include="Controllers\WebChiTietSpController.cs" />
+    <Compile Include="Controllers\WebDanhMucController.cs" />
+    <Compile Include="Controllers\WebGioHangController.cs" />
+    <Compile Include="Controllers\WebGioiThieuController.cs" />
+    <Compile Include="Controllers\WebHomeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WebLoginController.cs" />
+    <Compile Include="Controllers\WebRegisterController.cs" />
+    <Compile Include="Controllers\WebTaiKhoanController.cs" />
+    <Compile Include="Controllers\WebTimController.cs" />
+    <Compile Include="Controllers\WebTintucController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DatabaseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DonHang.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\FilePDF.cs" />
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\ImageNew.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ImageProduct.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sale.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\TypeProduct.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Vote.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\WebChiTietSanPhamRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\WebDanhMucRepository.cs" />
+    <Compile Include="Repositories\WebHomeRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="asset\css\DangKy.css" />
+    <Content Include="asset\css\DangNhap.css" />
+    <Content Include="asset\css\Home.css" />
+    <Content Include="asset\css\PageStyle.css" />
+    <Content Include="asset\css\StylePages.css" />
+    <Content Include="asset\css\Them.css" />
+    <Content Include="asset\images\ban.png" />
+    <Content Include="asset\images\baner1.png" />
+    <Content Include="asset\images\banner1.jpg" />
+    <Content Include="asset\images\banner2.jpg" />
+    <Content Include="asset\images\banner3.jpg" />
+    <Content Include="asset\image\imageproduct\oppo a92 1.jpg" />
+    <Content Include="asset\image\imageproduct\oppo a92 2.jpg" />
+    <Content Include="asset\image\product\iphone 11.jpg" />
+    <Content Include="asset\image\product\nokia 3.jpg" />
+    <Content Include="asset\image\product\oppo a92.jpg" />
+    <Content Include="asset\image\product\samsung 2.jpg" />
+    <Content Include="asset\image\imageproduct\samsung 21.jpg" />
+    <Content Include="asset\image\imageproduct\samsung 22.jpg" />
+    <Content Include="asset\image\product\xiaomi 10x.jpg" />
+    <Content Include="asset\js\Dangnhap.js" />
+    <Content Include="asset\css\slick-theme.css" />
+    <Content Include="asset\css\slick.css" />
+    <Content Include="asset\fonts\fontawesome-webfont.svg" />
+    <Content Include="asset\fonts\OFL.txt" />
+    <Content Include="asset\fonts\README.txt" />
+    <Content Include="asset\image\imagenew\Galaxy A32 ra mat 2.jpg" />
+    <Content Include="asset\image\imagenew\Galaxy A32 ra mat 3.jpg" />
+    <Content Include="asset\image\imagenew\Galaxy-A32-ra-mat-2.jpg" />
+    <Content Include="asset\image\imagenew\Galaxy-A32-ra-mat-3.jpg" />
+    <Content Include="asset\image\imageproduct\Nokia 5 4 4GB 128GB 2.jpeg" />
+    <Content Include="asset\image\imageproduct\Nokia 5.4 4GB 128GB 2.jpeg" />
+    <Content Include="asset\image\imageproduct\Nokia 5.4 4GB 128GB 3.jpeg" />
+    <Content Include="asset\image\imageproduct\Nokia 5.4 4GB 128GB 4.jpeg" />
+    <Content Include="asset\image\imageproduct\Nokia 5.4 4GB-128GB-2.jpeg" />
+    <Content Include="asset\image\imageproduct\Nokia 5.4 4GB-128GB-3.jpeg" />
+    <Content Include="asset\image\imageproduct\Nokia 5.4 4GB-128GB-4.jpeg" />
+    <Content Include="asset\image\new\an tuong dau tien ve OPPO Find X3 Pro 5G 1.jpg" />
+    <Content Include="asset\image\new\an-tuong-dau-tien-ve-OPPO-Find-X3-Pro-5G-1.jpg" />
+    <Content Include="asset\image\new\danh gia camera galaxy a02s 1 1.jpg" />
+    <Content Include="asset\image\new\danh-gia-camera-galaxy-a02s-1-1.jpg" />
+    <Content Include="asset\image\new\Galaxy A32 ra mat 1.jpg" />
+    <Content Include="asset\image\new\Galaxy-A32-ra-mat-1.jpg" />
+    <Content Include="asset\image\new\Galaxy-A32-ra-mat-2.jpg" />
+    <Content Include="asset\image\new\Galaxy-A32-ra-mat-3.jpg" />
+    <Content Include="asset\image\new\ngay ra mat.png" />
+    <Content Include="asset\image\new\ngay-ra-mat.png" />
+    <Content Include="asset\image\new\su dung 5G tren iPhone 12 series 1.jpg" />
+    <Content Include="asset\image\new\su-dung-5G-tren-iPhone-12-series-1.jpg" />
+    <Content Include="asset\image\product\iPhone 12 Pro Max 128GB.jpeg" />
+    <Content Include="asset\image\product\Nokia 5.4 4GB 128GB.jpeg" />
+    <Content Include="asset\image\product\Nokia 5.4 4GB-128GB-2.jpeg" />
+    <Content Include="asset\image\product\Nokia 5.4 4GB-128GB-3.jpeg" />
+    <Content Include="asset\image\product\Nokia 5.4 4GB-128GB-4.jpeg" />
+    <Content Include="asset\image\product\Nokia 5.4 4GB-128GB.jpeg" />
+    <Content Include="asset\image\product\OPPO Reno5.jpeg" />
+    <Content Include="asset\image\product\Sam Sung S21  5g.jpeg" />
+    <Content Include="asset\image\product\Sam Sung S21 5g.jpeg" />
+    <Content Include="asset\image\product\Sam Sung S21+ 5g.jpeg" />
+    <Content Include="asset\image\product\Xiaomi Redmi Note 9 Pro 64GB.jpeg" />
+    <Content Include="asset\image\typeproduct\apple.png" />
+    <Content Include="asset\image\typeproduct\nokia.png" />
+    <Content Include="asset\image\typeproduct\Oppo.png" />
+    <Content Include="asset\image\typeproduct\Samsung.png" />
+    <Content Include="asset\image\typeproduct\xiaomi.jpg" />
+    <Content Include="asset\js\Home.js" />
+    <Content Include="asset\js\jQuery3.min.lib.js" />
+    <Content Include="asset\js\slick.min.js" />
+    <Content Include="asset\vendor\angular.js" />
+    <Content Include="asset\vendor\animate.css" />
+    <Content Include="asset\vendor\bootstrap.css" />
+    <Content Include="asset\vendor\bootstrap.js" />
+    <Content Include="asset\vendor\css\font-awesome.css" />
+    <Content Include="asset\vendor\font-awesome.css" />
+    <Content Include="asset\vendor\fonts\fontawesome-webfont.svg" />
+    <Content Include="asset\vendor\wow.js" />
+    <Content Include="asset\xZoom-master\dist\xzoom.css" />
+    <Content Include="asset\xZoom-master\dist\xzoom.min.js" />
+    <Content Include="asset\xZoom-master\doc\css\foundation.css" />
+    <Content Include="asset\xZoom-master\doc\css\manual.css" />
+    <Content Include="asset\xZoom-master\doc\css\normalize.css" />
+    <Content Include="asset\xZoom-master\doc\css\prism.css" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\original\01_b_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\original\02_o_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\original\03_r_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\original\04_g_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\preview\01_b_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\preview\02_o_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\preview\03_r_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\preview\04_g_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\thumbs\01_b_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\thumbs\02_o_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\thumbs\03_r_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\gallery\thumbs\04_g_car.jpg" />
+    <Content Include="asset\xZoom-master\doc\images\logo.png" />
+    <Content Include="asset\xZoom-master\doc\js\foundation.min.js" />
+    <Content Include="asset\xZoom-master\doc\js\foundation\foundation.dropdown.js" />
+    <Content Include="asset\xZoom-master\doc\js\foundation\foundation.interchange.js" />
+    <Content Include="asset\xZoom-master\doc\js\foundation\foundation.js" />
+    <Content Include="asset\xZoom-master\doc\js\foundation\foundation.reveal.js" />
+    <Content Include="asset\xZoom-master\doc\js\vendor\fastclick.js" />
+    <Content Include="asset\xZoom-master\doc\js\vendor\jquery.cookie.js" />
+    <Content Include="asset\xZoom-master\doc\js\vendor\jquery.js" />
+    <Content Include="asset\xZoom-master\doc\js\vendor\modernizr.js" />
+    <Content Include="asset\xZoom-master\doc\js\vendor\placeholder.js" />
+    <Content Include="asset\xZoom-master\doc\js\vendor\prism.js" />
+    <Content Include="asset\xZoom-master\doc\manual.html" />
+    <Content Include="asset\xZoom-master\example\css\demo.css" />
+    <Content Include="asset\xZoom-master\example\css\foundation.css" />
+    <Content Include="asset\xZoom-master\example\css\normalize.css" />
+    <Content Include="asset\xZoom-master\example\css\xzoom.css" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\blank.gif" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\fancybox_loading%402x.gif" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\fancybox_loading.gif" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\fancybox_overlay.png" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\fancybox_sprite%402x.png" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\fancybox_sprite.png" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\helpers\fancybox_buttons.png" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\helpers\jquery.fancybox-media.js" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\jquery.fancybox.css" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\jquery.fancybox.js" />
+    <Content Include="asset\xZoom-master\example\fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="asset\xZoom-master\example\hammer.js\1.0.5\hammer.min.js" />
+    <Content Include="asset\xZoom-master\example\hammer.js\1.0.5\jquery.hammer.min.js" />
+    <Content Include="asset\xZoom-master\example\images\gallery\original\01_b_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\original\02_o_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\original\03_r_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\original\04_g_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\preview\01_b_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\preview\02_o_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\preview\03_r_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\preview\04_g_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\thumbs\01_b_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\thumbs\02_o_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\thumbs\03_r_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\gallery\thumbs\04_g_car.jpg" />
+    <Content Include="asset\xZoom-master\example\images\logo.png" />
+    <Content Include="asset\xZoom-master\example\images\xloading.gif" />
+    <Content Include="asset\xZoom-master\example\index.html" />
+    <Content Include="asset\xZoom-master\example\js\foundation.min.js" />
+    <Content Include="asset\xZoom-master\example\js\foundation\foundation.dropdown.js" />
+    <Content Include="asset\xZoom-master\example\js\foundation\foundation.interchange.js" />
+    <Content Include="asset\xZoom-master\example\js\foundation\foundation.js" />
+    <Content Include="asset\xZoom-master\example\js\foundation\foundation.reveal.js" />
+    <Content Include="asset\xZoom-master\example\js\setup.js" />
+    <Content Include="asset\xZoom-master\example\js\vendor\fastclick.js" />
+    <Content Include="asset\xZoom-master\example\js\vendor\jquery.cookie.js" />
+    <Content Include="asset\xZoom-master\example\js\vendor\jquery.js" />
+    <Content Include="asset\xZoom-master\example\js\vendor\modernizr.js" />
+    <Content Include="asset\xZoom-master\example\js\vendor\placeholder.js" />
+    <Content Include="asset\xZoom-master\example\magnific-popup\css\magnific-popup.css" />
+    <Content Include="asset\xZoom-master\example\magnific-popup\js\magnific-popup.js" />
+    <Content Include="asset\xZoom-master\gulpfile.js" />
+    <Content Include="asset\xZoom-master\index.html" />
+    <Content Include="asset\xZoom-master\src\xzoom.css" />
+    <Content Include="asset\xZoom-master\src\xzoom.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="asset\images\10.jpg" />
+    <Content Include="asset\images\banner.png" />
+    <Content Include="asset\images\footerFanPage_03.png" />
+    <Content Include="asset\images\footerMap_05.png" />
+    <Content Include="asset\images\ic1.png" />
+    <Content Include="asset\images\ic2.png" />
+    <Content Include="asset\images\ic3.png" />
+    <Content Include="asset\images\ic4.png" />
+    <Content Include="asset\images\magicskin.jpg" />
+    <Content Include="asset\images\tt1.png" />
+    <Content Include="asset\images\tt11.png" />
+    <Content Include="asset\images\tt2.jpg" />
+    <Content Include="asset\images\tt22.jpg" />
+    <Content Include="asset\images\tt3.png" />
+    <Content Include="asset\images\Unico 1-5.jpg" />
+    <Content Include="Models\DatabaseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DatabaseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+      <LastGenOutput>DatabaseModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="asset\fonts\fontawesome-webfont.eot" />
+    <Content Include="asset\fonts\fontawesome-webfont.ttf" />
+    <Content Include="asset\fonts\fontawesome-webfont.woff" />
+    <Content Include="asset\fonts\FontAwesome.otf" />
+    <Content Include="asset\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="asset\fonts\OpenSans-BoldItalic_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-Bold_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-ExtraBoldItalic_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-ExtraBold_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-Italic_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-LightItalic_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-Light_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-Regular_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-SemiBoldItalic_1.ttf" />
+    <Content Include="asset\fonts\OpenSans-SemiBold_1.ttf" />
+    <Content Include="asset\fonts\Roboto-Black.ttf" />
+    <Content Include="asset\fonts\Roboto-BlackItalic.ttf" />
+    <Content Include="asset\fonts\Roboto-Bold.ttf" />
+    <Content Include="asset\fonts\Roboto-BoldItalic.ttf" />
+    <Content Include="asset\fonts\Roboto-Italic.ttf" />
+    <Content Include="asset\fonts\Roboto-Light.ttf" />
+    <Content Include="asset\fonts\Roboto-LightItalic.ttf" />
+    <Content Include="asset\fonts\Roboto-Medium.ttf" />
+    <Content Include="asset\fonts\Roboto-MediumItalic.ttf" />
+    <Content Include="asset\fonts\Roboto-Regular.ttf" />
+    <Content Include="asset\fonts\Roboto-Thin.ttf" />
+    <Content Include="asset\fonts\Roboto-ThinItalic.ttf" />
+    <Content Include="asset\fonts\Saira-Black.ttf" />
+    <Content Include="asset\fonts\Saira-Bold.ttf" />
+    <Content Include="asset\fonts\Saira-ExtraBold.ttf" />
+    <Content Include="asset\fonts\Saira-ExtraLight.ttf" />
+    <Content Include="asset\fonts\Saira-Italic-VariableFont_wdth,wght.ttf" />
+    <Content Include="asset\fonts\Saira-Light.ttf" />
+    <Content Include="asset\fonts\Saira-Medium.ttf" />
+    <Content Include="asset\fonts\Saira-Regular.ttf" />
+    <Content Include="asset\fonts\Saira-SemiBold.ttf" />
+    <Content Include="asset\fonts\Saira-Thin.ttf" />
+    <Content Include="asset\fonts\Saira-VariableFont_wdth,wght.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-Black.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-Bold.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-ExtraBold.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-ExtraLight.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-Light.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-Medium.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-Regular.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-SemiBold.ttf" />
+    <Content Include="asset\fonts\SairaCondensed-Thin.ttf" />
+    <Content Include="asset\fonts\SairaStencilOne-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira-ThinItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira_Condensed-ThinItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira_Expanded-ThinItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira_ExtraCondensed-ThinItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiCondensed-ThinItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira_SemiExpanded-ThinItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Black.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-BlackItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Bold.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-BoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-ExtraBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-ExtraBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-ExtraLight.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-ExtraLightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Italic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Light.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-LightItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Medium.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-MediumItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Regular.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-SemiBold.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-SemiBoldItalic.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-Thin.ttf" />
+    <Content Include="asset\fonts\static\Saira_UltraCondensed-ThinItalic.ttf" />
+    <Content Include="asset\vendor\fonts\fontawesome-webfont.eot" />
+    <Content Include="asset\vendor\fonts\fontawesome-webfont.ttf" />
+    <Content Include="asset\vendor\fonts\fontawesome-webfont.woff" />
+    <Content Include="asset\vendor\fonts\FontAwesome.otf" />
+    <Content Include="asset\vendor\vendor.rar" />
+    <Content Include="asset\xZoom-master\.travis.yml" />
+    <Content Include="asset\xZoom-master\bower.json" />
+    <Content Include="asset\xZoom-master\doc\manual.md" />
+    <Content Include="asset\xZoom-master\example\fancybox\README.md" />
+    <Content Include="asset\xZoom-master\example\hammer.js\README.md" />
+    <Content Include="asset\xZoom-master\LICENSE" />
+    <Content Include="asset\xZoom-master\package.json" />
+    <Content Include="asset\xZoom-master\README.md" />
+    <Content Include="Areas\admin\Views\web.config" />
+    <Content Include="Areas\admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\admin\Views\AdminSales\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminSales\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminSales\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminSales\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminSales\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrderDetails\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrderDetails\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrderDetails\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrderDetails\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrderDetails\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\Search.cshtml" />
+    <Content Include="Areas\admin\Views\AdminTypeProducts\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminCustomers\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminCustomers\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminCustomers\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminCustomers\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminCustomers\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageProducts\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageProducts\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageProducts\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageProducts\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageProducts\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageNews\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageNews\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageNews\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageNews\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageNews\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminVotes\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminVotes\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminVotes\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminVotes\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminVotes\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageProducts\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\Search.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\Search.cshtml" />
+    <Content Include="Areas\admin\Views\AdminNews\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminImageNews\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminLogin\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrderDetails\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\ResultSearch1.cshtml" />
+    <Content Include="Areas\admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="asset\images\ba.webp" />
+    <EntityDeploy Include="Models\DatabaseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DatabaseModel.edmx.diagram">
+      <DependentUpon>DatabaseModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\admin\Views\AdminProducts\Create.cshtml" />
+    <Content Include="Areas\admin\Views\AdminProducts\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\AdminProducts\Details.cshtml" />
+    <Content Include="Areas\admin\Views\AdminProducts\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\AdminProducts\Index.cshtml" />
+    <Content Include="Areas\admin\Views\AdminProducts\Search.cshtml" />
+    <Content Include="Areas\admin\Views\AdminProducts\ResultSearch.cshtml" />
+    <Content Include="Areas\admin\Views\AdminAccounts\ResultSearchFromOrder.cshtml" />
+    <Content Include="Areas\admin\Views\AdminCustomers\DetailFromAccount.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\OrderStatus.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\OrderOver3Days.cshtml" />
+    <Content Include="Areas\admin\Views\AdminVotes\VoteByProduct.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\PrintOrderPDF.cshtml" />
+    <Content Include="Areas\admin\Views\AdminOrders\PrintOrderPDFDone.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\WebChiTietSp\Index.cshtml" />
+    <Content Include="Views\WebChiTietSp\ChiTietsp.cshtml" />
+    <Content Include="Views\WebDanhMuc\Index.cshtml" />
+    <Content Include="Views\WebDanhMuc\GetAll.cshtml" />
+    <Content Include="Views\WebTintuc\Index.cshtml" />
+    <Content Include="Views\WebTintuc\GotoPage.cshtml" />
+    <Content Include="Views\WebTintuc\ChiTiettt.cshtml" />
+    <Content Include="Views\WebGioHang\Index.cshtml" />
+    <Content Include="Views\WebLogin\Index.cshtml" />
+    <Content Include="Views\WebGioHang\ThemSanPham.cshtml" />
+    <Content Include="Views\WebGioHang\SetSoLuong.cshtml" />
+    <Content Include="Views\WebGioHang\XoaSanPham.cshtml" />
+    <Content Include="Views\WebGioHang\DatHang.cshtml" />
+    <Content Include="Views\WebRegister\Index.cshtml" />
+    <Content Include="Views\WebRegister\Register.cshtml" />
+    <Content Include="Views\WebTim\Index.cshtml" />
+    <Content Include="Views\WebTim\TimTuKhoa.cshtml" />
+    <Content Include="Views\WebHome\Index.cshtml" />
+    <Content Include="Views\WebGioiThieu\Index.cshtml" />
+    <Content Include="Views\WebLogin\Login.cshtml" />
+    <Content Include="Views\WebTaiKhoan\Index.cshtml" />
+    <Content Include="Views\WebTaiKhoan\CapNhatThongTin.cshtml" />
+    <Content Include="Views\WebTaiKhoan\DoiMatKhau.cshtml" />
+    <Content Include="Views\WebTaiKhoan\QuanLyDonHang.cshtml" />
+    <Content Include="Views\WebTaiKhoan\ChiTietDonHang.cshtml" />
+    <Content Include="Views\WebTaiKhoan\CapNhatThongTinKhachHang.cshtml" />
+    <Content Include="Views\WebTaiKhoan\DoiMK.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\admin\Data\" />
+    <Folder Include="asset\JavaScript\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54857</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44305/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

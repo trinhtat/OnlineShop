@@ -1,0 +1,74 @@
+﻿
+@model IEnumerable<ShopOnline.Models.Account>
+
+@{
+    ViewBag.Title = "Tìm Tài khoản";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Tài khoản</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create")|
+    @Html.ActionLink("Tìm", "Search")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên tài khoản
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            Loại tài khoản
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th>Xử lý</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @{
+                    var roleaccount = "";
+                    if (item.Role == 1)
+                    {
+                        roleaccount = "Quản trị";
+                    }
+                    else if (item.Role == 2)
+                    {
+                        roleaccount = "Nhân viên";
+                    }
+                    else
+                    {
+                        roleaccount = "khách hàng";
+                    }
+                }
+                @roleaccount
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.AccountID }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.AccountID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.AccountID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "AdminCustomers")
+</div>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <h2 class="text-center">Đăng Nhập</h2>
+        <hr />
+            <div style="margin:auto; width:30%">
+                @using (Html.BeginForm("Login", "WebLogin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <table class="w-100">
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <button type="submit" class="btn-primary mid2 mid1 border">Đăng nhập</button>
+                                </td>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td class="w-100">
+                                    <input type="text" class="form-input" name="accountname" placeholder="Tên tài khoản" required/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-100">
+                                    <input type="password" class="form-input" name="password" placeholder="Mật khẩu" required/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+            </div>
+        <hr />
+        <div>
+            <p class="text-center">Bạn chưa có tài khoản @Html.ActionLink("Đăng ký", "Index", "WebRegister")</p>
+        </div>
+    </div>
+</div>

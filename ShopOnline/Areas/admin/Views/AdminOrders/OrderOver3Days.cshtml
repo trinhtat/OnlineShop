@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ShopOnline.Models.Order>
+
+@{
+    ViewBag.Title = "Đơn hàng";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Đơn hàng</h2>
+<hr />
+@if (!string.IsNullOrEmpty(ViewBag.thongbao3days))
+{
+    <p class="text-center">@ViewBag.thongbao3days @Html.ActionLink("Tiến hành xủ lý", "OrderOver3Days")</p>
+}
+<div>
+    @using (Html.BeginForm("OrderStatus", "AdminOrders", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <select name="status">
+            <option selected hidden value="0">@Session["orderstatus"]</option>
+            <option value="1">Chờ xử lý</option>
+            <option value="2">Thành công</option>
+            <option value="3">Thất bại</option>
+            <option value="4">Tất cả</option>
+        </select>
+        <input type="date" name="dateorder" />
+        <button type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    }
+</div>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            Ngày đặt
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>
+            ghi chú
+        </th>
+        <th>
+            Tài khoản
+        </th>
+        <th>Xử lý</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOrder)
+            </td>
+            <td>
+                @{
+                    string status1;
+                    if (item.Status == 1)
+                    {
+                        status1 = "Chờ xủ lý";
+                    }
+                    else if (item.Status == 2)
+                    {
+                        status1 = "Thành công";
+                    }
+                    else
+                    {
+                        status1 = "Thất bại";
+                    }
+                }
+                @if (status1 == "Thành công" || status1 == "Thất bại")
+                {
+                    <p>@status1</p>
+                }
+                else
+                {
+                    using (Html.BeginForm("ChangeStatus", "AdminOrders", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <select name="status">
+                            <option selected hidden value="0">@status1</option>
+                            <option value="2">Thành công</option>
+                            <option value="3">Thất bại</option>
+                        </select>
+                        <button type="submit" name="orderid" value="@item.OrderID">
+                            <span class="glyphicon glyphicon-refresh"></span>
+                        </button>
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+            <td>
+                @Html.ActionLink(item.Account.AccountName, "ResultSearchFromOrder", "AdminAccounts", new { id = item.AccountID }, null)
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "ResultSearch", "AdminOrderDetails", new { id = item.OrderID }, null)
+            </td>
+        </tr>
+    }
+
+</table>

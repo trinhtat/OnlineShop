@@ -1,0 +1,70 @@
+﻿@model ShopOnline.Models.Customer
+@{
+    ViewBag.Title = "Tài khoản";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 w-25" style="padding:0;">
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật thông tin khách hàng", "CapNhatThongTinKhachHang")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật mật khẩu", "DoiMatKhau")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Quản lý đơn hàng", "QuanLyDonHang")</p>
+                </div>
+            </div>
+            <div class="col-md-9 w-75">
+                <div class="border">
+                    <h2 class="mid2">Thông tin khách hàng</h2>
+                </div>
+                <div class="border" style="padding:0;">
+                    <table>
+                        <tr>
+                            <td><b class="mid2">Tên khách hàng: </b></td>
+                            <td><p class="mid2">@Model.CustomerName</p></td>
+                        </tr>
+                        <tr>
+                            <td><b class="mid2">Ngày sinh: </b></td>
+                            <td><p class="mid2">@Model.DateBirth</p></td>
+                        </tr>
+                        <tr>
+                            <td><b class="mid2">Giới tính: </b></td>
+                            <td>
+                                @if (@Model.Gender == 1)
+                                {
+                                    <p class="mid2">Nam</p>
+                                }
+                                else
+                                {
+                                    <p class="mid2">Nữ</p>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b class="mid2">Địa chỉ: </b></td>
+                            <td><p class="mid2">@Model.Address</p></td>
+                        </tr>
+                        <tr>
+                            <td><b class="mid2">Email: </b></td>
+                            <td><p class="mid2">@Model.Email</p></td>
+                        </tr>
+                        <tr>
+                            <td><b class="mid2">Số điện thoại: </b></td>
+                            <td><p class="mid2">@Model.PhoneNumber</p></td>
+                        </tr>
+                        <tr>
+                            <td><b class="mid2">Ghi chú: </b></td>
+                            <td><p class="mid2">@Model.Note</p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

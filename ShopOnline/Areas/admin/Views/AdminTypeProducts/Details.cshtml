@@ -1,0 +1,43 @@
+﻿@model ShopOnline.Models.TypeProduct
+
+@{
+    ViewBag.Title = "Loại sản phẩm";
+    Layout = "~/Areas/admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center">Loại sản phẩm</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên loại Sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeProductName)
+        </dd>
+
+        <dt>
+            Hình ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+
+        <dt>
+            Ghi chú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.TypeProductID }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

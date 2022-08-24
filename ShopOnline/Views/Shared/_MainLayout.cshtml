@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/asset/css/PageStyle.css")
+    @Styles.Render("~/asset/vendor/bootstrap.css")
+    @Styles.Render("~/asset/css/Them.css")
+    @Scripts.Render("~/asset/vendor/bootstrap.js")
+    @Scripts.Render("~/asset/js/jQuery3.min.lib.js")
+    @Scripts.Render("~/asset/js/slick.min.js")
+</head>
+<body>
+
+    <div>
+        <div class="container-fluid header1">
+            <div class="container header1">
+                <div class="row ly1">
+                    <div class="col col-md-3 col-12">
+                        <div class="row logo">
+                            <h1 class="logo">TTPHONE</h1>
+                        </div>
+                    </div>
+                    <div class="col col-md-5 col-12">
+                        <div class="row form-group">
+                            @using (Html.BeginForm("TimTuKhoa", "WebTim", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="text" class="form-control" id="form-control1" placeholder="Sản phẩm muốn tìm" name="tukhoa">
+                                <button type="submit">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="col col-md-2 col-12">
+                        <div class="row giohang">
+                            <a href=@Url.Action("Index","WebGioHang") class="shop_cart" title="Giỏ hàng">
+                                <i class="fa fa-shopping-cart "></i>
+                                Giỏ hàng
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-md-2 col-12">
+                        <div class="row dangnhap">
+                            <a href=@Url.Action("Index","WebLogin") class="bntdangnhap" title="Trạng thái">
+                                <i class="fa fa-shopping-heart "></i>
+                                @Session["trangthaiweb"]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid header">
+            <div class="container">
+                <div class="row lymenu">
+                    <ul>
+                        <li>@Html.ActionLink("Trang chủ", "Index", "WebHome")</li>
+                        <li>@Html.ActionLink("Giới thiệu", "Index", "WebGioiThieu")</li>
+                        <li>@Html.ActionLink("Sản Phẩm", "Index", "WebDanhMuc")</li>
+                        <li>@Html.ActionLink("Tin tức", "Index", "WebTintuc")</li>
+                        <li>@Html.ActionLink("Tài khoản", "Index", "WebTaiKhoan")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <hr />
+        @RenderBody()
+    </div>
+    <div class="container-fluid footer1">
+        <div class="container footer">
+            <div class="row footer11">
+
+                <div class="col col-md-3 col-12">
+                    <h3>LIÊN HỆ</h3>
+                    <hr class="mini">
+                    <span><p>số 46 đường Xuân Phương, quận Nam Từ Liêm, thành phố Hà Nội</p></span>
+                    <span><p>Điện thoại: 0987654321</p></span>
+                    <span><p>Email: <br> ttphone@gmail.com</p></span>
+                </div>
+
+                <div class="col col-md-3 col-12">
+                    <h3 class="menu">CHÍNH SÁCH HỖ TRỢ</h3>
+                    <hr class="mini">
+                    <a href="#" class="a1">chính sách bảo mật</a> <br><br>
+                    <a href="#" class="a1">chính sách đổi trả</a> <br><br>
+                    <a href="#" class="a1">giao hàng tận nhà</a> <br><br>
+                    <a href="#" class="a1">hướng dẫn thanh toán</a> <br><br>
+                </div>
+
+                <div class="col col-md-3 col-12">
+                    <h3 class="menu">LIÊN KẾT</h3>
+                    <hr class="mini">
+                    <div class="textwidget custom-html-widget">
+                        <div>
+                            Hãy két nối với chúng tôi
+                        </div>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col col-md-3 col-12">
+                    <h3 class="menu">MAP</h3>
+                    <hr class="mini">
+                    
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.4737883168486!2d105.73291811486948!3d21.05373098598487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345457e292d5bf%3A0x20ac91c94d74439a!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1622178718212!5m2!1svi!2s" width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+            </div>
+            <div class="copyright">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <hr class="hrcopy">
+                    <h4 class="copyright1">Design by TRẦN VĂN ĐẠI</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿.border {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.mid2 {
+    vertical-align: middle;
+    margin: 1em 2em;
+}
+
+.mid1 {
+    text-align: center;
+    padding: 1em 2em;
+}
+
+.w-100{
+    width:100%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.form-input {
+    width: 90%;
+    height: 2em;
+    max-width: 1000px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom:1%;
+    margin-top:1%;
+    margin-right:10%;
+}

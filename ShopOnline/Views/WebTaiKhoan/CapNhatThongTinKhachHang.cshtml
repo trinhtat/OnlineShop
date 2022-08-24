@@ -1,0 +1,100 @@
+﻿@model ShopOnline.Models.Customer
+@{
+    ViewBag.Title = "Cập nhật thông tin tài khoản";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 w-25" style="padding:0;">
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật thông tin khách hàng", "CapNhatThongTinKhachHang")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật mật khẩu", "DoiMatKhau")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Quản lý đơn hàng", "QuanLyDonHang")</p>
+                </div>
+            </div>
+            <div class="col-md-9 w-75" style="padding:0;">
+                <div class="border">
+                    <h2 class="mid2">Cập nhật thông tin khách hàng</h2>
+                </div>
+                <div class="border">
+                    @using (Html.BeginForm("CapNhatThongTin", "WebTaiKhoan", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <table class="w-100">
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <button type="submit" class="btn-primary mid2 mid1 border">Cập nhật</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td class="w-25">
+                                        <b class="mid2">Tên khách hàng: </b>
+                                    </td>
+                                    <td class="w-25">
+                                        <input type="text" class="form-input" name="hoten" placeholder="@Model.CustomerName" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Ngày sinh: </b></td>
+                                    <td class="w-75">
+                                        <input type="date" class="form-input" name="ngaysinh" value='@Model.DateBirth.ToString("yyyy-MM-dd")' />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Giới tính: </b></td>
+                                    <td class="w-75">
+                                        @if (Model.Gender == 1)
+                                        {
+                                            <input type="radio" name="gioitinh" value="1" checked /><span>Nam</span>
+                                            <input type="radio" name="gioitinh" value="2" /><span>Nữ</span>
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" name="gioitinh" value="1"  /><span>Nam</span>
+                                            <input type="radio" name="gioitinh" value="2" checked/><span>Nữ</span>
+                                        }
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Địa chỉ: </b></td>
+                                    <td class="w-75">
+                                        <input type="text" class="form-input" name="diachi" placeholder="@Model.Address" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Email: </b></td>
+                                    <td class="w-75">
+                                        <input type="text" class="form-input" name="email" placeholder="@Model.Email" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Số điện thoại: </b></td>
+                                    <td class="w-75">
+                                        <input type="text" class="form-input" name="sodienthoai" placeholder="@Model.PhoneNumber" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="w-25"><b class="mid2">Ghi chú: </b></td>
+                                    <td class="w-75">
+                                        <input type="text" class="form-input" name="ghichu" placeholder="@Model.Note" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

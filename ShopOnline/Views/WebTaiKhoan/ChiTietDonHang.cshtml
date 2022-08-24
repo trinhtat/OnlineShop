@@ -1,0 +1,56 @@
+﻿@model List<ShopOnline.Models.OrderDetail>
+@{
+    ViewBag.Title = "Quản lý đơn hàng";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 w-25" style="padding:0;">
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật thông tin khách hàng", "CapNhatThongTinKhachHang")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Cập nhật mật khẩu", "DoiMatKhau")</p>
+                </div>
+                <div class="border">
+                    <p class="mid2">@Html.ActionLink("Quản lý đơn hàng", "QuanLyDonHang")</p>
+                </div>
+            </div>
+            <div class="col-md-9 w-75" style="padding:0;">
+                <div class="border">
+                    <h2 class="mid2">Quản lý đơn hàng</h2>
+                </div>
+                <div class="border">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Đơn giá</th>
+                                <th scope="col">Giảm giá</th>
+                                <th scope="col">Thành tiền</th>
+                                <th scope="col">Xử lý</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.Product.ProductName</th>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Product.UnitPrice</td>
+                                    <td>@item.Product.Sale.Discount %</td>
+                                    <td>@{var thanhtien = item.Quantity * item.Product.UnitPrice * item.Product.Sale.Discount / 100;}@thanhtien</td>
+                                    <td>...</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
